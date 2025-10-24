@@ -1,0 +1,29 @@
+
+<div class="relative min-h-screen">
+  <app-header (openAdmin)="toggleAdminPanel()"></app-header>
+  
+  <main>
+    <app-hero (openCustomizer)="openCustomizerFromHero()"></app-hero>
+    <app-shop (customizeProduct)="openCustomizer($event)"></app-shop>
+  </main>
+
+  <app-footer></app-footer>
+
+  @if (isCustomizerVisible() && selectedProduct()) {
+    <app-customizer-modal 
+      [product]="selectedProduct()!" 
+      [isVisible]="isCustomizerVisible()"
+      (close)="closeCustomizer()">
+    </app-customizer-modal>
+  }
+  
+  <div class="fixed right-5 bottom-5 z-[9999]">
+    <button (click)="toggleAdminPanel()" class="bg-blue-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-200">
+      <i class="fas fa-tools text-xl"></i>
+    </button>
+  </div>
+
+  @if(isAdminVisible()) {
+     <app-admin-panel [isVisible]="isAdminVisible()" (close)="toggleAdminPanel()"></app-admin-panel>
+  }
+</div>

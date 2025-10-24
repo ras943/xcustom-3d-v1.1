@@ -1,0 +1,5 @@
+{
+  "name": "Copy of Xustom3D Product Customizer",
+  "description": "An application to browse and customize 3D printed products. Features a live preview, dynamic pricing, and an admin panel with AI-powered content generation using the Gemini API.",
+  "requestFramePermissions": []
+}
